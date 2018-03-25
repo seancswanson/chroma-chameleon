@@ -1,0 +1,144 @@
+/* Universal */
+
+html {
+    /* border-box box model allows us to add padding and border to our elements without increasing their size */
+    box-sizing: border-box;
+    /* A system font stack so things load nice and quick! */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+      Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-weight: 900;
+    font-size: 10px;
+    color: black;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.07);
+  }
+
+*,
+*:before,
+*:after {
+box-sizing: inherit;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+  /* Nav */
+
+nav {
+    margin: 0;
+}
+
+.navbar {
+    width: 100%;
+    border-bottom: 1px solid rgba(0,0,0,.2);
+}
+
+.brand {
+    padding-left: 15px;
+}
+
+/* Settings */
+
+.div--container__settings {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    width: 100vw;
+    border-bottom: 1px solid rgba(104, 194, 236, 0.315);
+    box-shadow: 2px 1px 2px rgba(0,0,0,.1);
+}
+
+.div--container__settings div {
+    display: grid;
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.div--clear {
+    padding: 10px 10px 0 10px;
+}
+
+#p--settings__import {
+    margin: 0 auto;
+    position: relative;
+    top: -9px;
+    font-weight: 100;
+    font-size: 9px;
+}
+
+#input--settings__clear {
+    width: 100px;
+    min-width: 79px;
+    padding: 3px;
+    border: 1px solid rgb(225, 224, 224);
+    border-radius: 5px;
+    margin: 0 auto;
+    transition: all .2s;
+
+}
+
+#input--settings__upload {
+    max-width: 74px;
+    min-width: 74px;
+    max-height: 5px;
+    padding-bottom: 15px;
+    overflow: hidden;
+    margin: 10px auto;
+    transition: all .2s;
+    border-radius: 5px;
+    border: 1px solid rgb(225, 224, 224);
+
+}
+
+.div--settings__dimensions {
+    padding: 10px;
+
+}
+
+.div--settings__dimensions  label{
+    font-weight: 100;
+    letter-spacing: 1px;
+    width: 36px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.117);
+    margin: 0 0 3px 0;
+    text-transform: uppercase;
+}
+
+.div--settings__dimensions input{
+    margin: 0 0 3px 0;
+    font-weight: 400;
+    letter-spacing: 2px;
+    width: 150px;
+    padding: 3px 3px 3px 6px;
+}
+
+#ul--settings_tools {
+    list-style: none;
+    padding: 0 !important;
+    margin: 20px auto 0 auto;
+}
+
+#ul--settings_tools li {
+    display: inline-block;
+    cursor: pointer;
+    padding: 5px 30px;
+    margin: 0 3px;
+    border: 2px solid rgba(0,0,0,0);
+    transition: all .2s;
+}
+
+#ul--settings_tools li:hover {
+    display: inline-block;
+    border: 2px solid black;
+}
+
+#input--settings__clear:hover {
+    border: 1px solid black;
+
+}
+
+#input--settings__upload:hover {
+   border: 1px solid black;
+
+}
