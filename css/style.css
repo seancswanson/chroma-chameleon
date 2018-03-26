@@ -10,6 +10,7 @@ html {
     font-size: 10px;
     color: black;
     text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.07);
+    height: 100%;
   }
 
 *,
@@ -18,16 +19,18 @@ html {
 box-sizing: inherit;
 }
 
+
 a {
     color: inherit;
     text-decoration: none;
     cursor: pointer;
 }
 
-  /* Nav */
+/* Nav */
 
 nav {
     margin: 0;
+    background: white;
 }
 
 .navbar {
@@ -39,21 +42,23 @@ nav {
     padding-left: 15px;
 }
 
-/* Settings */
+/* Settings Grid */
 
 .div--container__settings {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: auto;
+    grid-template-columns: minmax(100px, 300px) minmax(100px, 200px) minmax(60px, 150px) minmax(60px, 150px);
+    grid-template-rows: 130px;
     width: 100vw;
-    border-bottom: 1px solid rgba(104, 194, 236, 0.315);
-    box-shadow: 2px 1px 2px rgba(0,0,0,.1);
+    /* border-bottom: 1px solid rgba(104, 194, 236, 0.315); */
+    box-shadow: 1px 2px 3px rgba(0,0,0,.1);
 }
 
-.div--container__settings div {
+.div--container__settings-child {
     display: grid;
     border-right: 1px solid rgba(0, 0, 0, 0.1);
 }
+
+/* Clear/Upload Canvas */
 
 .div--clear {
     padding: 10px 10px 0 10px;
@@ -62,7 +67,7 @@ nav {
 #p--settings__import {
     margin: 0 auto;
     position: relative;
-    top: -9px;
+    top: -13px;
     font-weight: 100;
     font-size: 9px;
 }
@@ -75,7 +80,6 @@ nav {
     border-radius: 5px;
     margin: 0 auto;
     transition: all .2s;
-
 }
 
 #input--settings__upload {
@@ -88,8 +92,9 @@ nav {
     transition: all .2s;
     border-radius: 5px;
     border: 1px solid rgb(225, 224, 224);
-
 }
+
+/* Dimensions */
 
 .div--settings__dimensions {
     padding: 10px;
@@ -100,31 +105,48 @@ nav {
     letter-spacing: 1px;
     width: 36px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.117);
-    margin: 0 0 3px 0;
+    margin: 3px auto;
     text-transform: uppercase;
 }
 
 .div--settings__dimensions input{
-    margin: 0 0 3px 0;
-    font-weight: 400;
-    letter-spacing: 2px;
-    width: 150px;
+    margin: 1px auto;
+    min-width: 50px;
+    max-width: 50%;
+    max-height: 25px;
     padding: 3px 3px 3px 6px;
+    text-align: center;
+    font-family: monospace;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+/* Tools */
+
+#a--tools__font {
+    padding: 5px;
+    font-family: "Times New Roman";
+    font-size: 25px;
 }
 
 #ul--settings_tools {
     list-style: none;
-    padding: 0 !important;
-    margin: 20px auto 0 auto;
+    padding: 0 3px !important;
+    margin: 10px auto 0 auto;
 }
 
 #ul--settings_tools li {
     display: inline-block;
     cursor: pointer;
+    width: 40px;
     padding: 5px;
     margin: 0 3px;
     border: 2px solid rgba(0,0,0,0);
     transition: all .2s;
+    text-align: center;
+    vertical-align: top;
+    min-height: 41px;
 }
 
 #ul--settings_tools li:hover {
@@ -141,18 +163,114 @@ nav {
    border: 1px solid black;
 }
 
-.div--container__settings img {
+.img--settings__tools {
     max-width: 25px;
 }
 
-.div--container__settings li {
-    vertical-align: top;
-    min-height: 41px;
+.div--tools__square {
+    border: 2px solid black;
+    height: 20px;
+    width: 20px;
+    position: relative;
+    top: 3px;
+    margin: 0 auto;
 }
 
-#a--tools__font {
-    padding: 5px;
-    font-family: "Times New Roman";
-    font-size: 22px;
+.div--tools__circle {
+    border: 2px solid black;
+    border-radius: 100%;
+    height: 20px;
+    width: 20px;
+    position: relative;
+    top: 3px;
+    margin: 0 auto;
 }
 
+.gradient {
+    height: 1px;
+    background: -moz-linear-gradient(left, rgba(30,87,153,1) 0%, rgba(30,87,153,0.53) 45%, rgba(0,0,0,0.14) 83%, rgba(0,0,0,0) 96%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, rgba(30,87,153,1) 0%,rgba(30,87,153,0.53) 45%,rgba(0,0,0,0.14) 83%,rgba(0,0,0,0) 96%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, rgba(30,87,153,1) 0%,rgba(30,87,153,0.53) 45%,rgba(0,0,0,0.14) 83%,rgba(0,0,0,0) 96%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#00000000',GradientType=1 ); /* IE6-9 */
+}
+/* reverse: background: -moz-linear-gradient(left, rgba(0,0,0,0) 4%, rgba(0,0,0,0.14) 17%, rgba(30,87,153,0.53) 55%, rgba(30,87,153,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(left, rgba(0,0,0,0) 4%,rgba(0,0,0,0.14) 17%,rgba(30,87,153,0.53) 55%,rgba(30,87,153,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to right, rgba(0,0,0,0) 4%,rgba(0,0,0,0.14) 17%,rgba(30,87,153,0.53) 55%,rgba(30,87,153,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#1e5799',GradientType=1 ); /* IE6-9 */ */
+
+/* Color */
+
+.div--settings__color {
+
+}
+
+.div--container__colorpicker {
+    text-align: center;
+    border: none !important;
+}
+
+#input--colorpicker {
+    margin-top: 30px;
+    width: 50%;
+    height: 75%;
+    border: 1px solid rgba(104, 194, 236, 0.315);
+    border-radius: 2px;
+}
+
+input[type="color" i] {
+    padding: 0 2px !important;
+}
+
+#img--palette {
+    max-width: 15px;
+    margin: 20px auto 0 auto;
+}
+
+/* Drawing Area/Canvas */
+
+.div--main__background{
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    text-align: center;
+}
+
+#main-canvas {
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.288);
+    border-radius: 2px;
+    margin-top: 100px;
+    background: white;
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.089)
+}
+
+/* Footer */
+
+.footer {
+    background: white;
+    margin: 0;
+    height: 35px;
+    width: 100vw;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    text-align: right;
+    padding: 0 15px 0 0;
+    border-top: 1px solid rgba(104, 194, 236, 0.315);
+    box-shadow: 1px 0px 2px 2px rgba(0,0,0,.1);
+}
+
+/* Media Queries */
+@media (max-width: 485px) {
+    .div--settings__tools {
+        overflow: scroll;
+    }
+    .div--container__settings {
+        grid-template-rows: 100px;
+    }
+    .div--container__colorpicker {
+        margin-top: -10px;
+
+    }
+}

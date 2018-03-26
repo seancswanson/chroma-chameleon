@@ -22,49 +22,73 @@
     </nav>
     <section id="settings">
         <div class="div--container__settings">
-            <div class="div--clear">
+            <div class="div--container__settings-child div--clear">
                 <input id="input--settings__clear" type="button" value="Clear Canvas" />
                 <input id="input--settings__upload" type="file" />
                 <p id="p--settings__import">upload image</p>
             </div>
-            <div class="div--settings__dimensions">
+            <div class="div--container__settings-child div--settings__dimensions">
                 <label for="width">Width:</label>
                 <input type="text" />
                 <label for="height">Height:</label>
                 <input type="text" />
             </div>
-            <div class="div--settings__tools">
+            <div class="div--container__settings-child div--settings__tools">
                 <ul id="ul--settings_tools">
                     <li>
                         <a>
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Ic_brush_48px.svg/96px-Ic_brush_48px.svg.png">
+                            <img class="img--settings__tools" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Ic_brush_48px.svg/96px-Ic_brush_48px.svg.png"
+                                alt="paint brush">
                         </a>
                     </li>
                     <li>
                         <a>
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Eraser_-_The_Noun_Project.svg/1024px-Eraser_-_The_Noun_Project.svg.png"
-                                alt="">
+                            <img class="img--settings__tools" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Eraser_-_The_Noun_Project.svg/1024px-Eraser_-_The_Noun_Project.svg.png"
+                                alt="eraser">
                         </a>
                         </a>
                     </li>
                     <li>
                         <a>
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Toicon-icon-stone-fill.svg/64px-Toicon-icon-stone-fill.svg.png"
-                                alt="">
+                            <img class="img--settings__tools" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Toicon-icon-stone-fill.svg/64px-Toicon-icon-stone-fill.svg.png"
+                                alt="paint bucket">
                         </a>
                     </li>
                     <li>
                         <a id="a--tools__font">T</a>
                     </li>
                     <li>
-                        <a>5</a>
+                        <a>
+                            <div class="div--tools__square"></div>
+                        </a>
                     </li>
                     <li>
-                        <a>6</a>
+                        <a>
+                            <div class="div--tools__circle"></div>
+                        </a>
                     </li>
                 </ul>
             </div>
+            <div class="div--container__settings-child div--settings__color">
+                <div class="div--container__colorpicker">
+                    <input id="input--colorpicker" type="color">
+                </div>
+                <img id="img--palette" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Paint_palette_icon_from_the_Noun_Project.svg/200px-Paint_palette_icon_from_the_Noun_Project.svg.png"
+                    alt="palette">
+            </div>
+        </div>
+        <div class="gradient"></div>
     </section>
+    <main>
+        <div class="div--main__background">
+            <canvas id="main-canvas" width="300" height="300"></canvas>
+        </div>
+    </main>
+    <footer>
+        <div class="footer">
+            <p>Sean Swanson ©2018 || seancswanson.com </p>
+        </div>
+    </footer>
 </body>
 
 </html>
