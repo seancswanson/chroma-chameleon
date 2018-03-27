@@ -68,16 +68,25 @@
                         </a>
                     </li>
                 </ul>
+                <span class="span--tools__scroll">scroll</span>
             </div>
             <div class="div--container__settings-child div--settings__color">
                 <div class="div--container__colorpicker">
-                    <input id="input--colorpicker" type="color">
+                    <input id="input--colorpicker" onchange="changeStrokeColor(this.value)" type="color">
                 </div>
                 <img id="img--palette" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Paint_palette_icon_from_the_Noun_Project.svg/200px-Paint_palette_icon_from_the_Noun_Project.svg.png"
                     alt="palette">
             </div>
+            <div class="div--container__settings-child div--settings__color">
+                <div class="div--container__brushsize">
+                    <input id="input--sizepickerslider" type="range" min="1" max="25" onchange="changeLineWidth(this.value)">
+                    <p id="p--sizepickernumber">brush size:</p>
+                    <input id="input--sizepickernumber" type="number">
+                </div>
+            </div>
         </div>
-        <div class="gradient"></div>
+
+        <div class="div--gradient__top"></div>
     </section>
     <main>
         <div class="div--main__background">
@@ -86,9 +95,12 @@
     </main>
     <footer>
         <div class="footer">
+            <div class="div--gradient__bottom"></div>
             <p>Sean Swanson ©2018 || seancswanson.com </p>
         </div>
     </footer>
+
+    <script src="js/script.js"></script>
 </body>
 
 </html>
