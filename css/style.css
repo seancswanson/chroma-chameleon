@@ -53,8 +53,8 @@ nav {
 
 .div--container__settings {
     display: grid;
-    grid-template-columns: minmax(100px, 300px) minmax(100px, 200px) minmax(60px, 150px) minmax(60px, 150px) minmax(60px, 150px) ;
-    grid-template-rows: 130px;
+    grid-template-columns: minmax(120px, 150px) minmax(100px, 170px) minmax(60px, 150px) minmax(60px, 150px) minmax(60px, 120px) ;
+    grid-template-rows: 135px;
     width: 100vw;
     border-bottom: 1px solid rgba(104, 194, 236, 0.1);
     background: white;
@@ -78,7 +78,7 @@ nav {
 /* Clear/Upload Canvas */
 
 .div--clear {
-    padding: 10px 10px 0 10px;
+    padding: 15px 10px 0 10px;
 }
 
 #p--settings__import {
@@ -149,8 +149,8 @@ nav {
 
 #ul--settings_tools {
     list-style: none;
-    padding: 0 3px !important;
-    margin: 10px auto 0 auto;
+    padding: 1px 3px !important;
+    margin: 0 auto;
 }
 
 #ul--settings_tools li {
@@ -158,7 +158,7 @@ nav {
     cursor: pointer;
     width: 40px;
     padding: 5px;
-    margin: 0 3px;
+    margin: 2px 3px;
     border: 2px solid rgba(0,0,0,0);
     transition: all .2s;
     text-align: center;
@@ -275,7 +275,7 @@ nav {
     height: 20px;
     position: relative;
     top:-115px;
-    right: 40px;
+    right: 35px;
 }
 
 /* Special styling for WebKit/Blink */
@@ -295,10 +295,9 @@ nav {
 
 /* All the same stuff for Firefox */
 #input--sizepickerslider[type=range]::-moz-range-thumb {
-    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
     border: 1px solid #000000;
     height: 10px;
-    width: 16px;
+    width: 10px;
     border-radius: 3px;
     background: #ffffff;
     cursor: pointer;
@@ -366,16 +365,22 @@ background: #367ebd;
 
 .div--main__background {
     text-align: center;
-
 }
 
 #main-canvas {
     text-align: center;
     border: 1px solid rgba(0, 0, 0, 0.288);
     border-radius: 2px;
-    margin-top: 30px;
     background: white;
     box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.089);
+}
+
+#p--mousex, #p--mousey {
+    margin: 5px;
+    font-weight: 100;
+    position: relative;
+    left: 10px;
+    letter-spacing: 1px;
 }
 
 /* Footer */
@@ -408,7 +413,7 @@ background: #367ebd;
 }
 
 /* Media Queries */
-@media (max-width: 590px) {
+@media (max-width: 595px) {
     .div--settings__tools {
         overflow: scroll;
     }
@@ -428,5 +433,12 @@ background: #367ebd;
     #p--sizepickernumber {
         top: -95px;
         left: 0px;
+    }
+}
+
+@media (min-width: 740px) {
+    #ul--settings_tools {
+        padding: 15px 3px !important;
+
     }
 }

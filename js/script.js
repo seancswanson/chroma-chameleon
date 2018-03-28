@@ -3,57 +3,68 @@ const canvas = document.querySelector("#main-canvas");
 const c = canvas.getContext("2d");
 // Settings Selectors
 const tools = document.getElementsByClassName("tool");
+const toolArray = Array.prototype.slice.call(tools);
 const clearButton = document.querySelector("#input--settings__clear");
 const colorPicker = document.querySelector("#input--colorpicker");
 const sizePickerSlider = document.querySelector("#input--sizepickerslider");
 const sizePickerNumber = document.querySelector("#input--sizepickernumber");
 const canvasWidthInput = document.querySelector("#input--width");
 const canvasHeightInput = document.querySelector("#input--height");
+const mouseXDisplay = document.querySelector("#p--mousex");
+const mouseYDisplay = document.querySelector("#p--mousey");
 // Tool Selectors
-tools.forEach(tool => {
-  this.addEventListener("click", changeTool);
-});
 const paintBrush = document.querySelector("#li--paintbrush");
 const eraserTool = document.querySelector("#li--eraser");
 const paintBucket = document.querySelector("#li--paintBucket");
 const textTool = document.querySelector("#li--text");
 const square = document.querySelector("#li--square");
 const circle = document.querySelector("#li--circle");
-
-var MMNav = {
-  init: function() {
-    var nav = document.getElementById("mainNav");
-    nav.onclick = this.onclick;
-  },
-  onclick: function(e) {
-    if (e.target.className == "bundle") {
-      e.target.href = e.target.href + "?name=value";
-    }
-    return true;
-  }
-};
+toolArray.forEach(tool => {
+  tool.addEventListener("click", chooseTool);
+});
 
 // Initial Value settings
 let canvasWidth = window.innerWidth < 600 ? window.innerWidth - 100 : 600;
 let canvasHeight = window.innerHeight < 550 ? window.innerHeight - 100 : 550;
 let currentStrokeColor = colorPicker.value;
 let currentBrushSize = sizePickerSlider.value;
+let currentTool = "paintbrush";
 let mouseInitial = false;
+let mouseY;
+let mouseX;
+// App & Canvas & Settings Initializer
+appInit = () => {
+  canvasInit();
+  settingInit();
+};
 
-// Canvas & Settings Initializer
 settingInit = () => {
   canvasWidthInput.value = canvasWidth;
   canvasHeightInput.value = canvasHeight;
+  sizePickerNumber.value = currentBrushSize;
+  canvas.onmousedown = mouseIsPressed;
+  canvas.addEventListener("mousemove", function(e) {
+    let mousePos = getMousePos(canvas, e);
+    mouseXDisplay.textContent = `x: ${mouseX}`;
+    mouseYDisplay.textContent = `y: ${mouseY}`;
+    console.log(`Mouse position: x = ${mouseX} y = ${mouseY}`);
+  });
 };
 
 canvasInit = () => {
   canvas.width = `${canvasWidth}`;
   canvas.height = `${canvasHeight}`;
-  canvas.onmousedown = drawLine;
-  canvas.onmouseup = drawLine;
 };
 
-// TODO Resize Canvas
+// Get current mouse position
+let getMousePos = (canvas, e) => {
+  var canvasArea = canvas.getBoundingClientRect();
+  mouseX = e.clientX - canvasArea.left;
+  mouseY = e.clientY - canvasArea.top;
+  return mouseX, mouseY;
+};
+
+// Resize Canvas
 setWidth = e => {
   if (e >= 1 && e <= 600) {
     canvasWidth = e;
@@ -92,7 +103,7 @@ changeLineWidth = e => {
 mouseIsPressed = () => {
   if (mouseInitial === false) {
     mouseInitial = true;
-    executeTool();
+    executeTool(currentTool);
   } else {
     mouseInitial = false;
   }
@@ -116,14 +127,43 @@ drawLine = () => {
 clearButton.addEventListener("click", function() {
   c.clearRect(0, 0, canvas.width, canvas.height);
 });
+toolArray.forEach(tool => {
+  tool.addEventListener("click", chooseTool);
+});
+// Change current tool
+function chooseTool(e) {
+  toolArray.forEach(tool => (tool.style.border = ""));
+  currentTool = e.toElement.id;
+  this.style.border = "2px dashed black";
+  console.log(`${currentTool} selected`);
+}
 
-executeTool = () => {
-  console.log("Tool is active");
-};
-
-appInit = () => {
-  canvasInit();
-  settingInit();
+// Use current tool
+executeTool = tool => {
+  console.log(`${tool} is working`);
+  if (mouseIsPressed) {
+    let toolType = {
+      paintbrush: function() {
+        console.log("ready canvas for drawing");
+      },
+      eraser: function() {
+        console.log("ready canvas for erasing");
+      },
+      paintbucket: function() {
+        console.log("ready canvas for fill");
+      },
+      text: function() {
+        console.log("ready canvas for textbox");
+      },
+      square: function() {
+        console.log("ready canvas for square");
+      },
+      circle: function() {
+        console.log("ready canvas for circle");
+      }
+    };
+    return toolType[tool]();
+  }
 };
 
 appInit();
