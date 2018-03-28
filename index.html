@@ -29,40 +29,40 @@
             </div>
             <div class="div--container__settings-child div--settings__dimensions">
                 <label for="width">Width:</label>
-                <input type="text" />
+                <input id="input--width" type="number" onchange="setWidth(this.value)" />
                 <label for="height">Height:</label>
-                <input type="text" />
+                <input id="input--height" type="number" onchange="setHeight(this.value)" />
             </div>
             <div class="div--container__settings-child div--settings__tools">
                 <ul id="ul--settings_tools">
-                    <li>
+                    <li class="tool" id="li--paintbrush">
                         <a>
                             <img class="img--settings__tools" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Ic_brush_48px.svg/96px-Ic_brush_48px.svg.png"
                                 alt="paint brush">
                         </a>
                     </li>
-                    <li>
+                    <li class="tool" id="li--eraser">
                         <a>
                             <img class="img--settings__tools" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Eraser_-_The_Noun_Project.svg/1024px-Eraser_-_The_Noun_Project.svg.png"
                                 alt="eraser">
                         </a>
                         </a>
                     </li>
-                    <li>
+                    <li class="tool" id="li--paintbucket">
                         <a>
                             <img class="img--settings__tools" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Toicon-icon-stone-fill.svg/64px-Toicon-icon-stone-fill.svg.png"
                                 alt="paint bucket">
                         </a>
                     </li>
-                    <li>
+                    <li class="tool" id="li--text">
                         <a id="a--tools__font">T</a>
                     </li>
-                    <li>
+                    <li class="tool" id="li--square">
                         <a>
                             <div class="div--tools__square"></div>
                         </a>
                     </li>
-                    <li>
+                    <li class="tool" id="li--circle">
                         <a>
                             <div class="div--tools__circle"></div>
                         </a>
@@ -77,11 +77,11 @@
                 <img id="img--palette" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Paint_palette_icon_from_the_Noun_Project.svg/200px-Paint_palette_icon_from_the_Noun_Project.svg.png"
                     alt="palette">
             </div>
-            <div class="div--container__settings-child div--settings__color">
+            <div class="div--container__settings-child div--settings__brushsize">
                 <div class="div--container__brushsize">
-                    <input id="input--sizepickerslider" type="range" min="1" max="25" onchange="changeLineWidth(this.value)">
+                    <input id="input--sizepickerslider" type="range" min="1" max="25" step="1" value="10" onchange="changeLineWidth(this.value)">
                     <p id="p--sizepickernumber">brush size:</p>
-                    <input id="input--sizepickernumber" type="number">
+                    <input id="input--sizepickernumber" type="number" onchange="changeLineWidth(this.value)">
                 </div>
             </div>
         </div>
@@ -90,7 +90,7 @@
     </section>
     <main>
         <div class="div--main__background">
-            <canvas id="main-canvas" width="300" height="300"></canvas>
+            <canvas id="main-canvas"></canvas>
         </div>
     </main>
     <footer>
