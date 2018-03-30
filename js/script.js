@@ -1,3 +1,7 @@
+// Splash Screen
+const splashScreen = document.getElementById("div--container__splashscreen");
+const aboutButton = document.getElementById("a--splashscreen__about");
+const startButton = document.getElementById("a--splashscreen__start");
 // Create Canvas & Context
 const canvas = document.querySelector("#main-canvas");
 const c = canvas.getContext("2d");
@@ -36,6 +40,12 @@ let mouseX;
 appInit = () => {
   canvasInit();
   settingInit();
+};
+
+splashScreenInit = () => {
+  splashScreen.addEventListener("load", function(e) {
+    console.log(e);
+  });
 };
 
 settingInit = () => {
@@ -144,7 +154,12 @@ executeTool = tool => {
   if (mouseIsPressed) {
     let toolType = {
       paintbrush: function() {
-        console.log("ready canvas for drawing");
+        c.beginPath();
+        c.moveTo(mouseX, mouseY);
+        c.lineTo(mouseX + parseInt(currentBrushSize), mouseY);
+        c.strokeStyle = `${currentStrokeColor}`;
+        c.lineWidth = `${currentBrushSize}`;
+        c.stroke();
       },
       eraser: function() {
         console.log("ready canvas for erasing");

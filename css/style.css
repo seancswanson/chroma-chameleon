@@ -30,6 +30,43 @@ a {
     cursor: pointer;
 }
 
+/* Splash Screen */
+.div--container__splashscreen {
+    background: white;
+    border: 4px solid black;
+    height: 40vh;
+    padding: 10px;
+    width: 50%;
+    margin: 0 auto;
+    z-index: 99;
+}
+
+#img--chromalogo {
+    display: block;
+    max-width: 210px;
+    min-width: 10%
+    float: left;
+}
+
+#span--splashscreen__title {
+    font-weight: 300;
+    font-size: 4vh;
+    position: relative;
+    top: -100px;
+    left: 105px;
+
+}
+
+#span--splashscreen__blurb {
+    display: block;
+    font-weight: 200;
+    font-size: 3vh;
+: italic;
+    position: relative;
+    top: -80px;
+    left: 95px;
+    width: 200px;
+}
 /* Nav */
 
 nav {
