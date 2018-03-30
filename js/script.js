@@ -53,11 +53,12 @@ settingInit = () => {
   canvasHeightInput.value = canvasHeight;
   sizePickerNumber.value = currentBrushSize;
   canvas.onmousedown = mouseIsPressed;
+  canvas.onmouseup = mouseIsPressed;
   canvas.addEventListener("mousemove", function(e) {
     let mousePos = getMousePos(canvas, e);
     mouseXDisplay.textContent = `x: ${mouseX}`;
     mouseYDisplay.textContent = `y: ${mouseY}`;
-    console.log(`Mouse position: x = ${mouseX} y = ${mouseY}`);
+    // console.log(`Mouse position: x = ${mouseX} y = ${mouseY}`);
   });
 };
 
@@ -105,7 +106,7 @@ changeLineWidth = e => {
   sizePickerSlider.value = e;
 };
 
-// TODO Draw Objects
+// Draw round rectangle
 
 // TODO Draw 10 pixels on click
 
@@ -116,6 +117,7 @@ mouseIsPressed = () => {
     executeTool(currentTool);
   } else {
     mouseInitial = false;
+    executeTool(currentTool);
   }
   return;
 };
@@ -150,35 +152,73 @@ function chooseTool(e) {
 
 // Use current tool
 executeTool = tool => {
-  console.log(`${tool} is working`);
   if (mouseIsPressed) {
-    let toolType = {
-      paintbrush: function() {
-        c.beginPath();
-        c.moveTo(mouseX, mouseY);
-        c.lineTo(mouseX + parseInt(currentBrushSize), mouseY);
-        c.strokeStyle = `${currentStrokeColor}`;
-        c.lineWidth = `${currentBrushSize}`;
-        c.stroke();
-      },
-      eraser: function() {
-        console.log("ready canvas for erasing");
-      },
-      paintbucket: function() {
-        console.log("ready canvas for fill");
-      },
-      text: function() {
-        console.log("ready canvas for textbox");
-      },
-      square: function() {
-        console.log("ready canvas for square");
-      },
-      circle: function() {
-        console.log("ready canvas for circle");
-      }
-    };
-    return toolType[tool]();
+    // let toolType = {
+    //   paintbrush: ,
+    //   eraser: function() {
+    //     console.log("ready canvas for erasing");
+    //   },
+    //   paintbucket: function() {
+    //     console.log("ready canvas for fill");
+    //   },
+    //   text: function() {
+    //     console.log("ready canvas for textbox");
+    //   },
+    //   square: function() {
+    //     console.log("ready canvas for square");
+    //   },
+    //   circle: function() {
+    //     console.log("ready canvas for circle");
+    //   }
+    // };
+    switch (tool) {
+      case "paintbrush":
+        setInterval(drawPaintbrush, 0.00001);
+        break;
+      case "eraser":
+        setInterval(drawEraser, 0.00001);
+        break;
+      case "paintbucket":
+        console.log(`${tool} is working`);
+        break;
+      case "text":
+        console.log(`${tool} is working`);
+        break;
+      case "sqaure":
+        console.log(`${tool} is working`);
+        break;
+      case "circle":
+        console.log(`${tool} is working`);
+        break;
+    }
   }
+};
+
+const drawPaintbrush = () => {
+  if (mouseInitial) {
+    c.beginPath();
+    c.arc(mouseX, mouseY, parseInt(currentBrushSize), 0, 2 * Math.PI);
+    c.fill();
+    c.stroke();
+  } else {
+    return;
+  }
+};
+const drawEraser = () => {
+  if (mouseInitial) {
+    c.beginPath();
+    c.arc(mouseX, mouseY, parseInt(currentBrushSize), 0, 2 * Math.PI);
+    c.fillStyle = `white`;
+    c.fill();
+    c.strokeStyle = `white`;
+    c.stroke();
+  } else {
+    return;
+  }
+};
+
+const clearIntervals = () => {
+  clearInterval(drawPaintbrush);
 };
 
 appInit();
