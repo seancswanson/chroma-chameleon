@@ -9,7 +9,8 @@ const c = canvas.getContext("2d");
 const tools = document.getElementsByClassName("tool");
 const toolArray = Array.prototype.slice.call(tools);
 const clearButton = document.querySelector("#input--settings__clear");
-const colorPicker = document.querySelector("#input--colorpicker");
+const fillPicker = document.querySelector("#input--colorpicker");
+const strokePicker = document.querySelector("#input--colorpicker2");
 const sizePickerSlider = document.querySelector("#input--sizepickerslider");
 const sizePickerNumber = document.querySelector("#input--sizepickernumber");
 const canvasWidthInput = document.querySelector("#input--width");
@@ -30,7 +31,8 @@ toolArray.forEach(tool => {
 // Initial Value settings
 let canvasWidth = window.innerWidth < 600 ? window.innerWidth - 100 : 600;
 let canvasHeight = window.innerHeight < 550 ? window.innerHeight - 100 : 550;
-let currentStrokeColor = colorPicker.value;
+let currentFillColor = fillPicker.value;
+let currentStrokeColor = strokePicker.value;
 let currentBrushSize = sizePickerSlider.value;
 let currentTool = "paintbrush";
 let mouseInitial = false;
@@ -99,6 +101,10 @@ changeStrokeColor = e => {
   currentStrokeColor = e;
 };
 
+changeFillColor = e => {
+  currentFillColor = e;
+};
+
 // Change Size
 changeLineWidth = e => {
   currentBrushSize = e;
@@ -106,18 +112,15 @@ changeLineWidth = e => {
   sizePickerSlider.value = e;
 };
 
-// Draw round rectangle
-
 // TODO Draw 10 pixels on click
 
 // Determine if mouse is pressed
 mouseIsPressed = () => {
-  if (mouseInitial === false) {
+  if (!mouseInitial) {
     mouseInitial = true;
     executeTool(currentTool);
   } else {
     mouseInitial = false;
-    executeTool(currentTool);
   }
   return;
 };
@@ -152,7 +155,7 @@ function chooseTool(e) {
 
 // Use current tool
 executeTool = tool => {
-  if (mouseIsPressed) {
+  if (mouseInitial) {
     // let toolType = {
     //   paintbrush: ,
     //   eraser: function() {
@@ -173,10 +176,10 @@ executeTool = tool => {
     // };
     switch (tool) {
       case "paintbrush":
-        setInterval(drawPaintbrush, 0.00001);
+        continuousPaintbrush;
         break;
       case "eraser":
-        setInterval(drawEraser, 0.00001);
+        continuousEraser;
         break;
       case "paintbucket":
         console.log(`${tool} is working`);
@@ -195,9 +198,11 @@ executeTool = tool => {
 };
 
 const drawPaintbrush = () => {
-  if (mouseInitial) {
+  if (mouseInitial && currentTool === "paintbrush") {
     c.beginPath();
     c.arc(mouseX, mouseY, parseInt(currentBrushSize), 0, 2 * Math.PI);
+    c.fillStyle = `${currentFillColor}`;
+    c.strokeStyle = `${currentStrokeColor}`;
     c.fill();
     c.stroke();
   } else {
@@ -205,20 +210,25 @@ const drawPaintbrush = () => {
   }
 };
 const drawEraser = () => {
-  if (mouseInitial) {
+  if (mouseInitial && currentTool === "eraser") {
     c.beginPath();
     c.arc(mouseX, mouseY, parseInt(currentBrushSize), 0, 2 * Math.PI);
     c.fillStyle = `white`;
-    c.fill();
     c.strokeStyle = `white`;
+    c.fill();
     c.stroke();
   } else {
     return;
   }
 };
 
+// Draw paintbrush interval
+const continuousPaintbrush = setInterval(drawPaintbrush, 0.00001);
+const continuousEraser = setInterval(drawEraser, 0.00001);
+
 const clearIntervals = () => {
-  clearInterval(drawPaintbrush);
+  clearInterval(continuousPaintbrush);
+  clearInterval(continuousEraser);
 };
 
 appInit();
