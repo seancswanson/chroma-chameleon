@@ -1,7 +1,5 @@
 // Splash Screen
-const splashScreen = document.getElementById("div--container__splashscreen");
-const aboutButton = document.getElementById("a--splashscreen__about");
-const startButton = document.getElementById("a--splashscreen__start");
+const splashScreen = document.querySelector(".div--modal");
 // Create Canvas & Context
 const canvas = document.querySelector("#main-canvas");
 const c = canvas.getContext("2d");
@@ -38,6 +36,15 @@ let currentTool = "paintbrush";
 let mouseInitial = false;
 let mouseY;
 let mouseX;
+
+// Splash Screen
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == splashScreen) {
+    splashScreen.style.display = "none";
+  }
+};
+
 // App & Canvas & Settings Initializer
 appInit = () => {
   canvasInit();
