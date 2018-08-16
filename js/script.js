@@ -40,9 +40,7 @@ let mouseX;
 // Splash Screen
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
-  if (event.target == splashScreen) {
     splashScreen.style.display = "none";
-  }
 };
 
 // App & Canvas & Settings Initializer

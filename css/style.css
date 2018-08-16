@@ -3,14 +3,16 @@
 html {
     /* border-box box model allows us to add padding and border to our elements without increasing their size */
     box-sizing: border-box;
-    /* A system font stack so things load nice and quick! */
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
-      Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    font-weight: 900;
-    font-size: 10px;
+    height: 100%;
+
     color: black;
     text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.07);
-    height: 100%;
+    /* A system font stack so things load nice and quick! */
+
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+      Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 10px;
+    font-weight: 900;
   }
 
 *,
@@ -20,34 +22,40 @@ box-sizing: inherit;
 }
 
 body {
-    background: rgb(172, 194, 202);
     overflow: hidden;
+
+    background: rgb(172, 194, 202);
 }
 
 a {
-    color: inherit;
-    text-decoration: none;
     cursor: pointer;
+    text-decoration: none;
+
+    color: inherit;
 }
 
 /* Splash Screen */
 
 #img--splashscreen {
-    border: 1px solid black;
-    margin: 15% auto; /* 15% from the top and centered */
     width: 80%; /* Could be more or less, depending on screen size */
     max-width: 500px;
+    margin: 15% auto; /* 15% from the top and centered */
+
+    border: 1px solid black;
 }
 
 .div--modal {
-    display: block; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
-    left: 0;
     top: 0;
+    left: 0;
+
+    display: block; /* Hidden by default */
+    overflow: auto; /* Enable scroll if needed */
+
     width: 100%; /* Full width */
     height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
+
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
@@ -55,13 +63,15 @@ a {
 
 nav {
     margin: 0;
+
     background: white;
 }
 
 .navbar {
-    margin-top: -10px;
-    height: 30px;
     width: 100%;
+    height: 30px;
+    margin-top: -10px;
+
     border-bottom: 1px solid rgba(0,0,0,.2);
 }
 
@@ -74,16 +84,21 @@ nav {
 
 .div--container__settings {
     display: grid;
-    text-align: center;
-    grid-template-columns: minmax(120px, 150px) minmax(100px, 170px) minmax(60px, 150px) minmax(60px, 150px) minmax(60px, 120px) ;
-    grid-template-rows: 135px;
+
     width: 100vw;
+
+    text-align: center;
+
     border-bottom: 1px solid rgba(104, 194, 236, 0.1);
     background: white;
+
+    grid-template-columns: minmax(120px, 150px) minmax(100px, 170px) minmax(60px, 150px) minmax(60px, 150px) minmax(60px, 120px) ;
+    grid-template-rows: 135px;
 }
 
 .div--container__settings-child {
     display: grid;
+
     border-right: 1px solid rgba(0, 0, 0, 0.1);
 
 }
@@ -92,9 +107,11 @@ nav {
     height: 1px;
     margin: 0;
     padding: 0;
+
     background: -moz-linear-gradient(left, rgba(30,87,153,.3) 0%, rgba(30,87,153,0.3) 45%, rgba(0,0,0,0.14) 83%, rgba(0,0,0,0) 96%); /* FF3.6-15 */
     background: -webkit-linear-gradient(left, rgba(30,87,153,.3) 0%,rgba(30,87,153,0.3) 45%,rgba(0,0,0,0.14) 83%,rgba(0,0,0,0) 96%); /* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(to right, rgba(30,87,153,.3) 0%,rgba(30,87,153,0.3) 45%,rgba(0,0,0,0.14) 83%,rgba(0,0,0,0) 96%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#00000000',GradientType=1 ); /* IE6-9 */
 }
 
@@ -105,33 +122,40 @@ nav {
 }
 
 #p--settings__import {
-    margin: 0 auto;
     position: relative;
     top: -13px;
-    font-weight: 100;
+
+    margin: 0 auto;
+
     font-size: 9px;
+    font-weight: 100;
 }
 
 #input--settings__clear {
     width: 100px;
     min-width: 79px;
+    margin: 0 auto;
     padding: 3px;
+
+    transition: all .2s;
+
     border: 1px solid rgb(225, 224, 224);
     border-radius: 5px;
-    margin: 0 auto;
-    transition: all .2s;
 }
 
 #input--settings__upload {
-    max-width: 74px;
-    min-width: 74px;
-    max-height: 5px;
-    padding-bottom: 15px;
     overflow: hidden;
+
+    min-width: 74px;
+    max-width: 74px;
+    max-height: 5px;
     margin: 10px auto;
+    padding-bottom: 15px;
+
     transition: all .2s;
-    border-radius: 5px;
+
     border: 1px solid rgb(225, 224, 224);
+    border-radius: 5px;
 }
 
 /* Dimensions */
@@ -141,56 +165,67 @@ nav {
 }
 
 .div--settings__dimensions  label{
-    font-weight: 100;
-    letter-spacing: 1px;
     width: 36px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.117);
     margin: 3px auto;
+
+    letter-spacing: 1px;
     text-transform: uppercase;
+
+    border-bottom: 1px solid rgba(0, 0, 0, 0.117);
+
+    font-weight: 100;
 }
 
 .div--settings__dimensions input{
-    margin: 1px auto;
     min-width: 50px;
     max-width: 50%;
     max-height: 25px;
+    margin: 1px auto;
     padding: 3px 3px 3px 6px;
+
     text-align: center;
+    letter-spacing: 1px;
+
     font-family: monospace;
     font-size: 13px;
     font-weight: 400;
-    letter-spacing: 1px;
 }
 
 /* Tools */
 
 #a--tools__font {
     padding: 5px;
+
     font-family: "Times New Roman";
     font-size: 25px;
 }
 
 #ul--settings_tools {
-    list-style: none;
-    padding: 1px 3px !important;
     margin: 0 auto;
+    padding: 1px 3px !important;
+
+    list-style: none;
 }
 
 #ul--settings_tools li {
     display: inline-block;
-    cursor: pointer;
+
     width: 40px;
-    padding: 5px;
+    min-height: 41px;
     margin: 2px 3px;
-    border: 2px solid rgba(0,0,0,0);
+    padding: 5px;
+
+    cursor: pointer;
     transition: all .2s;
     text-align: center;
     vertical-align: top;
-    min-height: 41px;
+
+    border: 2px solid rgba(0,0,0,0);
 }
 
 #ul--settings_tools li:hover {
     display: inline-block;
+
     border: 2px solid black;
 }
 
@@ -212,22 +247,26 @@ nav {
 }
 
 .div--tools__square {
-    border: 2px solid black;
-    height: 20px;
-    width: 20px;
     position: relative;
     top: 3px;
+
+    width: 20px;
+    height: 20px;
     margin: 0 auto;
+
+    border: 2px solid black;
 }
 
 .div--tools__circle {
-    border: 2px solid black;
-    border-radius: 100%;
-    height: 20px;
-    width: 20px;
     position: relative;
     top: 3px;
+
+    width: 20px;
+    height: 20px;
     margin: 0 auto;
+
+    border: 2px solid black;
+    border-radius: 100%;
 }
 
 /* Color */
@@ -238,33 +277,38 @@ nav {
 
 .div--container__colorpicker {
     text-align: center;
+
     border: none !important;
 }
 
 #input--colorpicker {
-    margin-top: 30px;
     width: 25%;
     height: 75%;
+    margin-top: 30px;
+
     border: 1px solid rgba(104, 194, 236, 0.315);
     border-radius: 2px;
 }
 
 #input--colorpicker[type="color" i] {
     padding: 0 2px !important;
+
     border: 1px solid rgba(0,0,0,.2);
 }
 
 
 #input--colorpicker2 {
-    margin-top: 30px;
     width: 25%;
     height: 75%;
+    margin-top: 30px;
+
     border: 1px solid rgba(104, 194, 236, 0.315);
     border-radius: 2px;
 }
 
 #input--colorpicker2[type="color" i] {
     padding: 0 2px !important;
+
     border: 1px solid rgba(0,0,0,.2);
 }
 
@@ -280,105 +324,129 @@ nav {
 }
 
 .div--container__brushsize {
-    text-align: center;
     margin: 0;
     padding: 2px;
+
+    text-align: center;
 }
 
 #p--sizepickernumber {
-    font-weight: 100;
-    font-size: 9px;
-    width: 20px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
     position: relative;
     top: -110px;
     left: 5px;
+
+    width: 20px;
+
+    letter-spacing: 1px;
+    text-transform: uppercase;
+
+    font-size: 9px;
+    font-weight: 100;
 }
 
 #input--sizepickerslider {
-    transform: rotate(90deg);
-    -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
-    background: transparent; /* Otherwise white in Chrome */
     width: 80px;
     height: 100%;
+
+    transform: rotate(90deg);
+
+    background: transparent; /* Otherwise white in Chrome */
+
+    -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
 }
 
 #input--sizepickernumber {
-    font-family: monospace;
-    font-size: 8px;
-    font-weight: 400;
-    width: 33px;
-    height: 20px;
     position: relative;
     top:-115px;
     right: 35px;
+
+    width: 33px;
+    height: 20px;
+
+    font-family: monospace;
+    font-size: 8px;
+    font-weight: 400;
 }
 
 /* Special styling for WebKit/Blink */
 #input--sizepickerslider[type=range]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    border: 1px solid #000000;
-    height: 10px;
-    width: 10px;
-    border-radius: 6px;
-    background: #ffffff;
-    cursor: pointer;
     position: relative;
     top: 12px;
+
+    width: 10px;
+    height: 10px;
     margin-top: -14px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+
+    cursor: pointer;
+
+    border: 1px solid #000000;
+    border-radius: 6px;
+    background: #ffffff;
     box-shadow: 0px 0px 1px rgba(0,0,0,.2); /* Add cool effects to your sliders! */
+
+    -webkit-appearance: none;
   }
 
 /* All the same stuff for Firefox */
 #input--sizepickerslider[type=range]::-moz-range-thumb {
-    border: 1px solid #000000;
-    height: 10px;
     width: 10px;
+    height: 10px;
+
+    cursor: pointer;
+
+    border: 1px solid #000000;
     border-radius: 3px;
     background: #ffffff;
-    cursor: pointer;
 }
 
   /* All the same stuff for IE */
 #input--sizepickerslider[type=range]::-ms-thumb {
-    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-    border: 1px solid #000000;
-    height: 36px;
     width: 16px;
+    height: 36px;
+
+    cursor: pointer;
+
+    border: 1px solid #000000;
     border-radius: 3px;
     background: #ffffff;
-    cursor: pointer;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
 }
 
 #input--sizepickerslider[type=range]::-webkit-slider-runnable-track {
     height: 6px;
+
     cursor: pointer;
-    background: #3071a9;
+
     border-radius: 5px;
+    background: #3071a9;
   }
 
 #input--sizepickerslider[type=range]:focus::-webkit-slider-runnable-track {
-    background: #367ebd;
     height: 6px;
+
+    background: #367ebd;
 }
 
 #input--sizepickerslider[type=range]::-moz-range-track {
     height: 6px;
+
     cursor: pointer;
-    background: #3071a9;
+
     border-radius: 5px;
+    background: #3071a9;
 }
 
 #input--sizepickerslider[type=range]::-ms-track {
     height: 6px;
+
     cursor: pointer;
-    background: #3071a9;
-    border-radius: 5px;
     cursor: pointer;
-    background: transparent;
-    border-color: transparent;
+
     color: transparent;
+    border-color: transparent;
+    border-radius: 5px;
+    background: #3071a9;
+    background: transparent;
 }
 
 #input--sizepickerslider[type=range]:focus::-ms-fill-lower {
@@ -386,9 +454,9 @@ background: black;
 }
 
 #input--sizepickerslider[type=range]::-ms-fill-upper {
-background: #3071a9;
 border: 0.2px solid #010101;
 border-radius: 2.6px;
+background: #3071a9;
 box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
 }
 
@@ -406,6 +474,7 @@ background: #367ebd;
 
 #main-canvas {
     text-align: center;
+
     border: 1px solid rgba(0, 0, 0, 0.288);
     border-radius: 2px;
     background: white;
@@ -413,40 +482,47 @@ background: #367ebd;
 }
 
 #p--mousex, #p--mousey {
-    margin: 5px;
-    font-weight: 100;
     position: relative;
     left: 10px;
+
+    margin: 5px;
+
     letter-spacing: 1px;
+
+    font-weight: 100;
 }
 
 /* Footer */
 
 .footer {
-    background: white;
-    margin: 0;
-    height: 35px;
-    width: 100vw;
     position: absolute;
     right: 0;
     bottom: 0;
     left: 0;
-    text-align: right;
+
+    width: 100vw;
+    height: 35px;
+    margin: 0;
     padding: 0 15px 0 0;
+
+    text-align: right;
+
     border-top: 1px solid rgba(104, 194, 236, 0.2);
+    background: white;
 }
 
 .div--gradient__bottom {
     position: relative;
     top: -2px;
+
+    width: 100vw;
+    height: 1px;
     margin: 0;
     padding: 0;
-    height: 1px;
-    width: 100vw;
+
     background: -moz-linear-gradient(left, rgba(0,0,0,0) 4%, rgba(0,0,0,0.14) 17%, rgba(30,87,153,0.3) 55%, rgba(30,87,153,.3) 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(left, rgba(0,0,0,0) 4%,rgba(0,0,0,0.14) 17%,rgba(30,87,153,0.3) 55%,rgba(30,87,153,.3) 100%); Chrome10-25,Safari5.1-6
-    background: linear-gradient(to right, rgba(0,0,0,0) 4%,rgba(0,0,0,0.14) 17%,rgba(30,87,153,0.53) 55%,rgba(30,87,153,1) 100%); W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#1e5799',GradientType=1 ); /* IE6-9 */ */
+    background: -webkit-linear-gradient(left, rgba(0,0,0,0) 4%,rgba(0,0,0,0.14) 17%,rgba(30,87,153,0.3) 55%,rgba(30,87,153,.3) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, rgba(0,0,0,0) 4%,rgba(0,0,0,0.14) 17%,rgba(30,87,153,0.53) 55%,rgba(30,87,153,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 }
 
 /* Media Queries */
@@ -472,15 +548,17 @@ background: #367ebd;
         left: 0px;
     }
     #input--colorpicker[type="color" i] {
-        padding: 0 !important;
-        border: 0;
         width: 30%;
+        padding: 0 !important;
+
+        border: 0;
     }
 
     #input--colorpicker2[type="color" i] {
-        padding: 0 !important;
-        border: 0;
         width: 30%;
+        padding: 0 !important;
+
+        border: 0;
     }
 
 }
@@ -490,13 +568,13 @@ background: #367ebd;
         padding: 15px 3px !important;
     }
     #input--colorpicker[type="color" i] {
-        padding: 0 2px!important;
-        margin-right: 5px;
         width: 30%;
+        margin-right: 5px;
+        padding: 0 2px!important;
     }
 
     #input--colorpicker2[type="color" i] {
-        padding: 0 2px !important;
         width: 30%;
+        padding: 0 2px !important;
     }
 }
